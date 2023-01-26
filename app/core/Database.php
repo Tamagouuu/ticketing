@@ -17,7 +17,8 @@ class Database
 
         $option = [
             PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ];
 
         try {
@@ -61,17 +62,23 @@ class Database
     public function resultSet()
     {
         $this->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->stmt->fetchAll();
     }
 
     public function single()
     {
         $this->execute();
-        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+        return $this->stmt->fetch();
     }
 
     public function rowCount()
     {
         return $this->stmt->rowCount();
+    }
+
+    public function getAllData($table)
+    {
+        $this->query("SELECT * FROM $table");
+        return $this->resultSet();
     }
 }
