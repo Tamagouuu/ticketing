@@ -13,20 +13,21 @@
         <div class="row">
             <div class="col">
                 <div class="p-1">
-                    <form action="<?= BASEURL ?>/dashboard/processtambahtypetransport" method="POST" class="user">
+                    <form action="<?= BASEURL ?>/dashboard/processedittypetransport/" method="POST" class="user">
+                        <input type="hidden" name="id_type_transportasi" value="<?= $data['typeTransport']['id_type_transportasi'] ?>">
                         <div class="form-group">
                             <label><small class="font-weight-bold">Nama Type</small></label>
-                            <input type="text" class="form-control form-control-user br-10" name="nama_type" required>
+                            <input type="text" class="form-control form-control-user br-10" name="nama_type" value="<?= $data['typeTransport']['nama_type'] ?>" required>
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label><small class="font-weight-bold">Keterangan</small></label>
-                            <input type="text" class="form-control form-control-user br-10" name="keterangan" required>
+                            <input type="text" class="form-control form-control-user br-10" name="keterangan" value="<?= $data['typeTransport']['keterangan'] ?>" required>
                         </div>
                         <button type="submit" class="btn btn-success btn-icon-split float-right">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">Tambah Data</span>
+                            <span class="text">Edit Data</span>
                         </button>
                     </form>
                 </div>

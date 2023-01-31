@@ -81,4 +81,16 @@ class Database
         $this->query("SELECT * FROM $table");
         return $this->resultSet();
     }
+    public function getDataByID($table, $column, $match)
+    {
+        $this->query("SELECT * FROM $table WHERE $column = :match");
+        $this->bind('match', $match);
+        return $this->single();
+    }
+    public function deleteDataByID($table, $column, $match)
+    {
+        $this->query("DELETE FROM $table WHERE $column = $match");
+        $this->execute();
+        return $this->rowCount();
+    }
 }
