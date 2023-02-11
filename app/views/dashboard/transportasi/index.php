@@ -44,7 +44,7 @@
                             <td><?= $transportasi['kode'] ?></td>
                             <td><?= $transportasi['jumlah_kursi'] ?></td>
                             <td><?= $transportasi['keterangan'] ?></td>
-                            <td><?= $transportasi['id_type_transportasi'] ?></td>
+                            <td><?= $transportasi['type_keterangan'] ?></td>
                             <td>
                                 <?= Components::editButton("/dashboard/edittransportasi/{$transportasi['id_transportasi']}") ?>
                                 <?= Components::deleteButton("/dashboard/deletetransportasi/{$transportasi['id_transportasi']}") ?>
